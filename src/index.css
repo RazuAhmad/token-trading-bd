@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+:root{
+  --whole-screen-bg:black
+}
+
+body{
+ background-color: var(--whole-screen-bg);
+}
+
