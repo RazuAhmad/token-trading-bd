@@ -1,6 +1,6 @@
 import { Navbar } from 'flowbite-react'
 import React from 'react'
-
+import logo from "../../images/logo.svg"
 function NavigationBar() {
   return (
    <>
@@ -15,7 +15,7 @@ function NavigationBar() {
     className='cursor-pointer ml-4 lg:ml-8'
   >
     <img
-      src="https://flowbite.com/docs/images/logo.svg"
+      src={logo}
       className="mr-3 h-6 sm:h-9 "
       alt="Flowbite Logo"
     />
@@ -45,7 +45,7 @@ function NavigationBar() {
       Login
     </Navbar.Link>
     <Navbar.Link to="/navbars" className='text-xl cursor-pointer mr-2 lg:mr-4'>
-      Register
+      Total Order
     </Navbar.Link>
   </Navbar.Collapse>
 </Navbar>
