@@ -1,5 +1,6 @@
 import { Navbar } from 'flowbite-react'
 import React from 'react'
+import { Link, NavLink } from 'react-router-dom'
 import logo from "../../images/logo.svg"
 function NavigationBar() {
   return (
@@ -23,30 +24,38 @@ function NavigationBar() {
       Token Trading BD
     </span>
   </Navbar.Brand>
-  <Navbar.Toggle />
+  <Navbar.Toggle  />
   <Navbar.Collapse className='mr-6 lg:mr-12'>
+    <NavLink to="/home">
     <Navbar.Link
-      to="/navbars"
       className='text-xl  cursor-pointer mr-2 lg:mr-4'
     >
-      Home
+     Home
     </Navbar.Link>
+    </NavLink>
+
+    <NavLink  to="/buyToken">
     <Navbar.Link
-      
-      to="/navbars"
       className='text-xl cursor-pointer mr-2 lg:mr-4'
     >
       Buy
     </Navbar.Link>
-    <Navbar.Link to="/navbars" className='text-xl cursor-pointer mr-2 lg:mr-4'>
-      Sell
+    </NavLink>
+
+    <Navbar.Link to="/selling" className='text-xl cursor-pointer mr-2 lg:mr-4 '>
+     <NavLink to="/sellToken"> Sell</NavLink>
     </Navbar.Link>
-    <Navbar.Link to="/navbars" className='text-xl cursor-pointer mr-2 lg:mr-4'>
+    <NavLink to="/login">
+    <Navbar.Link  className='text-xl cursor-pointer mr-2 lg:mr-4'>
       Login
     </Navbar.Link>
-    <Navbar.Link to="/navbars" className='text-xl cursor-pointer mr-2 lg:mr-4'>
+    </NavLink>
+
+    <NavLink to="/totalOrder">
+    <Navbar.Link className='text-xl cursor-pointer mr-2 lg:mr-4'>
       Total Order
     </Navbar.Link>
+    </NavLink>
   </Navbar.Collapse>
 </Navbar>
    </>

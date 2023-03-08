@@ -3,13 +3,14 @@ import "./SellForm.css";
 
 function SellForm() {
   return (
-    <div className='Form-container '>
+    <>
       <h2 className='font-bold text-center text-white text-3xl mx-5 mb-4'>Sell Your Token Now!</h2>
-        <form className="SellForm-container_main">
+        <form className="max-w-xl mx-auto 
+      p-4 sm:p-8 md:p-12 lg:p-16 SellForm-container_main ">
             
             <p>
             <label>Wallet Address</label><br />
-            <input className='w-full py-2 px-4 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500' type="text"  placeholder='Your Wallet Address'/>
+            <input className='w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500' type="text"  placeholder='Your Wallet Address'/>
             </p>
 
             <p >
@@ -20,7 +21,7 @@ function SellForm() {
             <label className='font-bold'>Transaction ID/Upload SS</label><br />
             <input className='w-full py-2 px-4 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500' type="text"  placeholder='Enter Your Transaction id'/>
             <p className=' text-white mb-4 font-bold'>Or, Upload SS</p>
-            <input className="w-full py-2 px-4 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white rounded-lg shadow-md p-3"   type="file" name="" id="" />
+            <input className="w-full sm:w-2/3 py-2 px-4 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white rounded-lg shadow-md p-3"   type="file" name="" id="" />
             
             </p>
             <p>
@@ -37,9 +38,9 @@ function SellForm() {
             </p>
             <p className='w-full sm:w-1/2 lg:w-1/3 p-2'>
             <label for="payment">Payment Option:</label><br />
-            <select id="payment">
-  <option value="volvo">Bkash</option>
-  <option value="saab">Nagad</option>
+            <select className='bg-gray-700 text-white text-bold '  id="payment">
+  <option   value="Bkash">Bkash</option>
+  <option value="Nagad" >Nagad</option>
   
 </select>
 
@@ -48,9 +49,11 @@ function SellForm() {
             <label>Payment Details</label><br />
             <input className='w-full py-2 px-4 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500' type="text"  placeholder='Your Wallet Address'/>
             </p>
-            <button className='submit_button '>Submit</button>
+            <div >
+            <input className='text-white   bg-green-700 border-2 ml-2 px-12 py-2 rounded'  type="submit" value="Submit" />
+            </div>
         </form>
-    </div>
+    </>
   )
 }
 
