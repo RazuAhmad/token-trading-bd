@@ -6,6 +6,7 @@ import BuyForm from './Components/BuyForm/BuyForm';
 import Introduction from './Components/Introduction/Introduction';
 import LatestExchanges from './Components/LatestExchanges/LatestExchanges';
 import NavigationBar from './Components/NavigationBar/NavigationBar';
+import PeerToPeer from './Components/PeerToPeer/PeerToPeer';
 
 import SellForm from './Components/SellForm/SellForm';
 
@@ -22,8 +23,10 @@ const App = () => {
         <Route path='/' element={<SellForm/>} />
         <Route path='/sellToken' element={<SellForm/>} />
       <Route path='/buyToken' element={<BuyForm/>} />
+      <Route path='/peer2peer' element={<PeerToPeer/>} />
       </Routes>
       <AdminPanel/>
+      
     </>
   )
 }

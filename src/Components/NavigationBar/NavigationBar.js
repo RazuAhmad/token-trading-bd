@@ -26,14 +26,6 @@ function NavigationBar() {
   </Navbar.Brand>
   <Navbar.Toggle  />
   <Navbar.Collapse className='mr-6 lg:mr-12'>
-    <NavLink to="/home">
-    <Navbar.Link
-      className='text-xl  cursor-pointer mr-2 lg:mr-4'
-    >
-     Home
-    </Navbar.Link>
-    </NavLink>
-
     <NavLink  to="/buyToken">
     <Navbar.Link
       className='text-xl cursor-pointer mr-2 lg:mr-4'
@@ -42,12 +34,22 @@ function NavigationBar() {
     </Navbar.Link>
     </NavLink>
 
-    <Navbar.Link to="/selling" className='text-xl cursor-pointer mr-2 lg:mr-4 '>
-     <NavLink to="/sellToken"> Sell</NavLink>
+    <NavLink to="/sellToken">
+    <Navbar.Link  className='text-xl cursor-pointer mr-2 lg:mr-4 '>
+      Sell
     </Navbar.Link>
+    </NavLink>
     <NavLink to="/login">
     <Navbar.Link  className='text-xl cursor-pointer mr-2 lg:mr-4'>
       Login
+    </Navbar.Link>
+    </NavLink>
+
+    <NavLink to="/peer2peer">
+    <Navbar.Link
+      className='text-xl  cursor-pointer mr-2 lg:mr-4'
+    >
+     Peer2Peer
     </Navbar.Link>
     </NavLink>
 
