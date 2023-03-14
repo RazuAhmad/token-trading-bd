@@ -4,8 +4,8 @@ import "./App.css";
 import AdminPanel from './Components/AdminPanel/AdminPanel';
 import BuyForm from './Components/BuyForm/BuyForm';
 import Introduction from './Components/Introduction/Introduction';
-import LatestExchanges from './Components/LatestExchanges/LatestExchanges';
 import NavigationBar from './Components/NavigationBar/NavigationBar';
+import NewsAndMedia from './Components/NewsAndMedia/NewsAndMedia';
 import PeerToPeer from './Components/PeerToPeer/PeerToPeer';
 
 import SellForm from './Components/SellForm/SellForm';
@@ -25,7 +25,7 @@ const App = () => {
       <Route path='/buyToken' element={<BuyForm/>} />
       <Route path='/peer2peer' element={<PeerToPeer/>} />
       </Routes>
-      <AdminPanel/>
+      <NewsAndMedia/>
       
     </>
   )

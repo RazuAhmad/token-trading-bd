@@ -41,7 +41,7 @@ function NavigationBar() {
     </NavLink>
     <NavLink to="/login">
     <Navbar.Link  className='text-xl cursor-pointer mr-2 lg:mr-4'>
-      Login
+      Contact Us
     </Navbar.Link>
     </NavLink>
 
@@ -55,7 +55,7 @@ function NavigationBar() {
 
     <NavLink to="/totalOrder">
     <Navbar.Link className='text-xl cursor-pointer mr-2 lg:mr-4'>
-      Total Order
+      Order History
     </Navbar.Link>
     </NavLink>
   </Navbar.Collapse>

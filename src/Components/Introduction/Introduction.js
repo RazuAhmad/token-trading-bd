@@ -10,7 +10,7 @@ function Introduction() {
         <h1 className='text-white text-center mt-12 lg:text-7xl md:text-6xl sm:text-5xl' >  
         <Typewriter
   options={{
-    strings: ['BFIC AND B-LOVE', 'in Bangladesh'],
+    strings: ['BFIC BLove Network', 'in Bangladesh'],
     autoStart: true,
     loop: true,
   }}
