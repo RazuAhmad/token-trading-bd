@@ -1,6 +1,6 @@
 import { Navbar } from 'flowbite-react'
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import {  NavLink } from 'react-router-dom'
 import logo from "../../images/logo.svg"
 function NavigationBar() {
   return (
@@ -26,7 +26,7 @@ function NavigationBar() {
   </Navbar.Brand>
   <Navbar.Toggle  />
   <Navbar.Collapse className='mr-6 lg:mr-12'>
-    <NavLink  to="/buyToken">
+    <NavLink   to="/buyToken">
     <Navbar.Link
       className='text-xl cursor-pointer mr-2 lg:mr-4'
     >
@@ -39,11 +39,6 @@ function NavigationBar() {
       Sell
     </Navbar.Link>
     </NavLink>
-    <NavLink to="/login">
-    <Navbar.Link  className='text-xl cursor-pointer mr-2 lg:mr-4'>
-      Contact Us
-    </Navbar.Link>
-    </NavLink>
 
     <NavLink to="/peer2peer">
     <Navbar.Link
@@ -53,11 +48,13 @@ function NavigationBar() {
     </Navbar.Link>
     </NavLink>
 
-    <NavLink to="/totalOrder">
-    <Navbar.Link className='text-xl cursor-pointer mr-2 lg:mr-4'>
-      Order History
+    <NavLink to="/contactUs">
+    <Navbar.Link  className='text-xl cursor-pointer mr-2 lg:mr-4'>
+      Contact Us
     </Navbar.Link>
     </NavLink>
+
+    
   </Navbar.Collapse>
 </Navbar>
    </>
