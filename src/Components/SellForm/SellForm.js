@@ -1,14 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import "./SellForm.css";
 
 function SellForm() {
-
+const [currencyName,setCurrencyName]=useState("BFIC");
   const { register, handleSubmit ,watch} = useForm();
   const onSubmit = data => console.log(data);
 
 const currencyOptionValue=watch("currency");
-// const paymentMethodValue=watch("paymentMethod");
+
+const handleCurrency=(e)=>{
+  console.log(e.target.value);
+}
 
   return (
     <>
@@ -18,18 +21,32 @@ const currencyOptionValue=watch("currency");
             
           <p>
             <label className='ml-1' htmlFor="payment">Currency</label><br />
-          <select {...register("currency")} className='class="w-full block px-3 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm' id="payment">
+          <select onChange={handleCurrency}  {...register("currency")} className='class="w-full block px-3 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm' id="payment">
+          <option value="">Please select an option</option>
+
             <option value="BFIC">BFIC</option>
             <option value="BLove">BLove</option>
-  
+           
           </select>
-          {currencyOptionValue === 'BFIC' && <p>You have selected BFIC</p>}
-      {currencyOptionValue === 'BLove' && <p>You have selected BLove</p>}
+          <div >
+            {currencyOptionValue === 'BFIC' && <span className='text-white'>You have selected BFIC</span>}
+          {currencyOptionValue === 'BLove' && <span className='text-white'>You have selected BLove</span>}
+            </div>
             </p>
+            
 
             <p>
             <label htmlFor='wallet-address'>Wallet Address</label><br />
-            <input {...register("walletAddress")} className='w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500' type="text" id='wallet-address' placeholder='Your Wallet Address'/>
+            <input {...register("walletAddress")} className='w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500' type="text" id='wallet-address'  
+            defaultValue={ 
+              currencyOptionValue === "BFIC"
+            ? "BFIC@338238"
+            : currencyOptionValue === "BLove"
+            ? "BLove" :"low"
+
+            }
+            />
+             
             </p>
 
             <p >
@@ -58,12 +75,13 @@ const currencyOptionValue=watch("currency");
             </p>
             <p className='w-full sm:w-1/2 lg:w-1/3 p-2'>
             <label htmlFor="payment">Payment Method:</label><br />
+
             <select {...register("paymentMethod")}  className='bg-gray-700 text-white text-bold text-md rounded '  id="payment">
             <option   value="Bkash">Bkash</option>
             <option value="Nagad" >Nagad</option>
             <option value="Nagad" >Bank Transfer</option>
   
-</select>
+            </select>
 
             </p>
             <p>
