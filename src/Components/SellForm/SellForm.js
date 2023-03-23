@@ -1,17 +1,18 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useForm } from 'react-hook-form';
 import "./SellForm.css";
 
 function SellForm() {
-  const { register, handleSubmit ,watch} = useForm({
+  const { register, handleSubmit ,watch,reset} = useForm({
     defaultValues:{
       currency:"BFIC",
       paymentMethod:"Bkash"
     }
   });
-  const onSubmit = data => {
+  const onSubmit = (data) => {
 
-    console.log(data)
+    console.log(data);
+    reset()
   };
 
 const currencyOptionValue=watch("currency");
@@ -53,12 +54,12 @@ const paymentMethodOptionValue=watch("paymentMethod");
 
             <p >
             <label htmlFor='amount'>Amount</label><br />
-            <input type="number" {...register("amount", { min: 1, })} className='w-full py-2 px-4 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500'   required  placeholder='Enter Your amount' id='amount'/>
+            <input type="number" {...register("amount", { min: 1, },{required:true})} className='w-full py-2 px-4 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500'     placeholder='Enter Your amount' id='amount'/>
             </p>
             <p>
             <p>
             <label className='font-bold'>Transaction ID</label><br />
-            <input {...register("transactionID")} className='w-full py-2 px-4 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500' type="text"  placeholder='Enter Your Transaction id' required/>
+            <input {...register("transactionID",{ required: true })} className='w-full py-2 px-4 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500' type="text"  placeholder='Enter Your Transaction id' />
             </p>
             
             <p className=' text-white mb-4 font-bold'>
@@ -68,7 +69,7 @@ const paymentMethodOptionValue=watch("paymentMethod");
             </p>
             <p>
             <label htmlFor='active-phone'>Active Phone Number</label><br />
-            <input {...register("phoneNumber")} className='w-full py-2 px-4 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500' type="tel" id='active-phone' placeholder='Enter Your Phone Number'/>
+            <input {...register("phoneNumber",{ required: true })} className='w-full py-2 px-4 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500' type="tel" id='active-phone' placeholder='Enter Your Phone Number'/>
             </p>
            
             <p >
@@ -84,23 +85,24 @@ const paymentMethodOptionValue=watch("paymentMethod");
             <option value="BankTransfer" >Bank Transfer</option>
   
             </select>
-            <div className='text-white'>
+           
+            </p>
+            <div className='text-white mt--10'>
               {
-                paymentMethodOptionValue==="Bkash" && <span>Bkash Agent Number</span>
+                paymentMethodOptionValue==="Bkash" && <p className=' '>Bkash Agent Number: 017999999999</p>
               }
               {
-                paymentMethodOptionValue === "Nagad" && <span>Nagad Agent Number</span>
+                paymentMethodOptionValue === "Nagad" && <p>Nagad Agent Number: 01877777777</p>
               }
               {
-                paymentMethodOptionValue ==="BankTransfer" && <span>Bank Transfer Number</span>
+                paymentMethodOptionValue ==="BankTransfer" && <p className='display-block'>Bank Transfer ID: bank@id.trade</p>
               }
             </div>
-            </p>
             
             <p>
             <label >Payment Details</label><br />
             
-            <textarea {...register("paymentDetails", )} className='w-full py-2 px-4 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500' name="fieldname" rows="3" cols="50" maxLength="180" placeholder='write your payment details'></textarea>
+            <textarea {...register("paymentDetails" )} className='w-full py-2 px-4 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500' name="fieldname" rows="3" cols="50" maxLength="180" placeholder='write your payment details'></textarea>
             </p>
             <div >
             <input type="submit" className='text-white   bg-green-700 border-2 ml-2 px-12 py-2 rounded cursor-pointer'   value="Submit" />
