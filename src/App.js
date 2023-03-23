@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom';
 import "./App.css";
+import AdminPanel from './Components/AdminPanel/AdminPanel';
 import BuyForm from './Components/BuyForm/BuyForm';
 import Footer from './Components/Footer/Footer';
 import Introduction from './Components/Introduction/Introduction';
@@ -26,6 +27,7 @@ const App = () => {
       <Route path='/peer2peer' element={<PeerToPeer/>} />
       </Routes>
       <NewsAndMedia/>
+      <AdminPanel/>
       <Footer/>
     </>
   )

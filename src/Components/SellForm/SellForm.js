@@ -3,15 +3,19 @@ import { useForm } from 'react-hook-form';
 import "./SellForm.css";
 
 function SellForm() {
-const [currencyName,setCurrencyName]=useState("BFIC");
-  const { register, handleSubmit ,watch} = useForm();
-  const onSubmit = data => console.log(data);
+  const { register, handleSubmit ,watch} = useForm({
+    defaultValues:{
+      currency:"BFIC",
+      paymentMethod:"Bkash"
+    }
+  });
+  const onSubmit = data => {
+
+    console.log(data)
+  };
 
 const currencyOptionValue=watch("currency");
-
-const handleCurrency=(e)=>{
-  console.log(e.target.value);
-}
+const paymentMethodOptionValue=watch("paymentMethod");
 
   return (
     <>
@@ -21,9 +25,9 @@ const handleCurrency=(e)=>{
             
           <p>
             <label className='ml-1' htmlFor="payment">Currency</label><br />
-          <select onChange={handleCurrency}  {...register("currency")} className='class="w-full block px-3 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm' id="payment">
-          <option value="">Please select an option</option>
 
+          <select {...register("currency")} className='class="w-full block px-3 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm' id="payment">
+         
             <option value="BFIC">BFIC</option>
             <option value="BLove">BLove</option>
            
@@ -38,13 +42,11 @@ const handleCurrency=(e)=>{
             <p>
             <label htmlFor='wallet-address'>Wallet Address</label><br />
             <input {...register("walletAddress")} className='w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500' type="text" id='wallet-address'  
-            defaultValue={ 
-              currencyOptionValue === "BFIC"
-            ? "BFIC@338238"
-            : currencyOptionValue === "BLove"
-            ? "BLove" :"low"
+            value={ 
+              currencyOptionValue === 'BFIC' ? "BFIC@hlaflajlfd" : currencyOptionValue==="BLove" ? "Blove@ljafldj" : "BFIC@hlaflajlfd"
 
             }
+            readOnly
             />
              
             </p>
@@ -56,7 +58,7 @@ const handleCurrency=(e)=>{
             <p>
             <p>
             <label className='font-bold'>Transaction ID</label><br />
-            <input {...register("transactionID")} className='w-full py-2 px-4 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500' type="text"  placeholder='Enter Your Transaction id'/>
+            <input {...register("transactionID")} className='w-full py-2 px-4 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500' type="text"  placeholder='Enter Your Transaction id' required/>
             </p>
             
             <p className=' text-white mb-4 font-bold'>
@@ -79,15 +81,26 @@ const handleCurrency=(e)=>{
             <select {...register("paymentMethod")}  className='bg-gray-700 text-white text-bold text-md rounded '  id="payment">
             <option   value="Bkash">Bkash</option>
             <option value="Nagad" >Nagad</option>
-            <option value="Nagad" >Bank Transfer</option>
+            <option value="BankTransfer" >Bank Transfer</option>
   
             </select>
-
+            <div className='text-white'>
+              {
+                paymentMethodOptionValue==="Bkash" && <span>Bkash Agent Number</span>
+              }
+              {
+                paymentMethodOptionValue === "Nagad" && <span>Nagad Agent Number</span>
+              }
+              {
+                paymentMethodOptionValue ==="BankTransfer" && <span>Bank Transfer Number</span>
+              }
+            </div>
             </p>
+            
             <p>
             <label >Payment Details</label><br />
             
-            <textarea {...register("paymentDetails", { required: true, maxLength: 20 })} className='w-full py-2 px-4 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500' name="fieldname" rows="3" cols="50" maxLength="180" placeholder='write your payment details'></textarea>
+            <textarea {...register("paymentDetails", )} className='w-full py-2 px-4 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500' name="fieldname" rows="3" cols="50" maxLength="180" placeholder='write your payment details'></textarea>
             </p>
             <div >
             <input type="submit" className='text-white   bg-green-700 border-2 ml-2 px-12 py-2 rounded cursor-pointer'   value="Submit" />
