@@ -15,8 +15,8 @@ function PeerToPeer() {
     reset()
   };
 
-  const currencyOptionValue=watch("currency");
-const buyOrSellOptionValue=watch("buyOrSell");
+//   const currencyOptionValue=watch("currency");
+// const buyOrSellOptionValue=watch("buyOrSell");
 
 // const coinRate={
 //   if(currencyOptionValue ==="BFIC" &&buyOrSellOptionValue==="buy" ) {
@@ -65,10 +65,7 @@ const buyOrSellOptionValue=watch("buyOrSell");
             <p >
             <label>Per Coin Rate</label><br />
             <input className='w-full py-2 px-4 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500' type="number" step="0.01" min="10" max="100" required  
-            value={
-              
-              
-            }
+            
             />
             </p>
            
