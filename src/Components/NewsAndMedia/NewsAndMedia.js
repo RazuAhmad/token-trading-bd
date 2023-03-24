@@ -3,7 +3,7 @@ import newsAndMediaImg from "../../images/News and media.png"
 function NewsAndMedia() {
   return (
     <div className='mt-24 mx-6 flex flex-col justify-center items-center sm:flex-col md:flex-row lg:flex-row      '>
-      <div className='flex flex-1 flex-start '>
+      <div className='flex flex-1  '>
       <p className='flex flex-col flex-start'>
       <img className='w-full ' src={newsAndMediaImg} alt="" />
       </p>

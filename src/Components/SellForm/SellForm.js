@@ -82,12 +82,11 @@ const paymentMethodOptionValue=watch("paymentMethod");
             <select {...register("paymentMethod")}  className='bg-gray-700 text-white text-bold text-md rounded '  id="payment">
             <option   value="Bkash">Bkash</option>
             <option value="Nagad" >Nagad</option>
-            <option value="BankTransfer" >Bank Transfer</option>
-  
+            <option value="Bank Transfer" >Bank Transfer</option>
             </select>
            
             </p>
-            <div className='text-white mt--10'>
+            <div style={{marginTop:"-15px"}}  className='text-white '>
               {
                 paymentMethodOptionValue==="Bkash" && <p className=' '>Bkash Agent Number: 017999999999</p>
               }
@@ -95,7 +94,7 @@ const paymentMethodOptionValue=watch("paymentMethod");
                 paymentMethodOptionValue === "Nagad" && <p>Nagad Agent Number: 01877777777</p>
               }
               {
-                paymentMethodOptionValue ==="BankTransfer" && <p className='display-block'>Bank Transfer ID: bank@id.trade</p>
+                paymentMethodOptionValue ==="Bank Transfer" && <p className='display-block'>Bank Transfer ID: bank@id.trade</p>
               }
             </div>
             

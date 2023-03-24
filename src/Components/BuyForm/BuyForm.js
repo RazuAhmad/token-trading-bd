@@ -3,14 +3,19 @@ import { useForm } from "react-hook-form";
 
 function BuyForm() {
 
+  const { register, handleSubmit ,watch,reset} = useForm({
+    defaultValues:{
+      currency:"BFIC",
+    }
+  });
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const currencyOptionValue=watch("currency");
+  const paymentMethodOptionValue=watch("paymentMethod");
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    console.log(data);
+    reset();
+  };
 
   return (
     <>
@@ -33,13 +38,17 @@ function BuyForm() {
             <option value="BFIC">BFIC</option>
             <option value="BLove">BLove</option>
           </select>
+          <div >
+            {currencyOptionValue === 'BFIC' && <span className='text-white'>You have selected BFIC</span>}
+          {currencyOptionValue === 'BLove' && <span className='text-white'>You have selected BLove</span>}
+            </div>
         </p>
 
         <p>
           <label htmlFor="amount">Amount</label>
           <br />
           <input
-            {...register("amount")}
+            {...register("amount",{min:1},{required:true})}
             className="w-full  py-2 px-4 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             type="number"
             id="amount"
@@ -56,8 +65,10 @@ function BuyForm() {
             className="w-full py-2 px-4 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             type="text"
             id="wallet"
-            placeholder="Your Personal Wallet Address"
-            required
+            value={
+              currencyOptionValue === 'BFIC' ? "BFIC@hlaflajlfd" : currencyOptionValue==="BLove" ? "Blove@ljafldj" : "BFIC@hlaflajlfd"
+            }
+           readOnly
           />
         </p>
 
@@ -65,7 +76,7 @@ function BuyForm() {
           <label htmlFor="phone">Active Phone Number</label>
           <br />
           <input
-            {...register("activePhone")}
+            {...register("activePhone",{required:true})}
             className="w-full py-2 px-4 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             type="tel"
             id="phone"
@@ -87,6 +98,17 @@ function BuyForm() {
             <option value="Bank Transfer">Bank Transfer</option>
           </select>
         </p>
+        <div style={{marginTop:"-12px"}} className='text-white '>
+              {
+                paymentMethodOptionValue==="Bkash" && <p className=' '>Bkash Agent Number: 017999999999</p>
+              }
+              {
+                paymentMethodOptionValue === "Nagad" && <p>Nagad Agent Number: 01877777777</p>
+              }
+              {
+                paymentMethodOptionValue ==="Bank Transfer" && <p className='display-block'>Bank Transfer ID: bank@id.trade</p>
+              }
+            </div>
 
         <p>
           <label>Date of Buy</label>
